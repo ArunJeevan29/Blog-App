@@ -32,6 +32,7 @@ A modern full-stack Blog Application built with **Node.js**, **Express.js**, **M
 
 ## 📂 Project Structure
 
+```bash
 blog-app/
 │
 ├── app.js                   # Main Express server
@@ -58,7 +59,6 @@ blog-app/
 └── README.md                # Project documentation (this file)
 
 
-```bash
 git clone https://github.com/ArunJeevan29/blog-app.git
 cd blog-app
 
