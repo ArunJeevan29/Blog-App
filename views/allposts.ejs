@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <%- include("partials/navbar") %>
+    <h2 class="allposts-heading">All Blog Posts</h2>
+    <div class="posts-container">
+        <% posts.forEach(post => { %>
+            <div class="post-card">
+                <h3><%= post.title %></h3>
+                <p><%= post.content %></p>
+                <em>By <%= post.user.username %></em>
+            </div>
+        <% }) %>
+    </div>
+</body>
+</html>

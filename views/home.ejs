@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Home</title>
+</head>
+<body class="homepage">
+  <%- include("partials/navbar") %>
+
+  <div class="home-section section5">
+      <% if (user) { %>
+        <a href="/dashboard" class="overlay-text"> CREATE NEW BLOG </a>
+      <% } else { %>
+        <a href="/login" class="overlay-text"> CREATE NEW BLOG </a>
+      <% } %>
+  </div>
+  <div class="home-section section1">
+  </div>
+
+  <div class="home-section section2">
+    <div></div>
+  </div>
+
+  <div class="home-section section3">
+    <div></div>
+  </div>
+
+  <div class="home-section section4">
+    <div></div>
+  </div>
+
+</body>
+</html>

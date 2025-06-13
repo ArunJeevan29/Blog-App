@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Dashboard</title>
+</head>
+<body class="dashboard-page">
+
+    <%- include("partials/navbar") %>
+
+<div class="dashboard-posts">
+  <h1 class="dashboard-header">Your Dashboard</h1>
+  <p class="dashboard-header1">Your posts will appear here.!</p>
+
+  <% if (user) { %>
+    <a href="/posts/new" class="create-link">Create New Post</a>
+  <% } else { %>
+    <a href="/login" class="create-link">Login to Create Post</a>
+  <% } %>
+
+
+  <% if (posts.length === 0) { %>
+    <p class="dashboard-error">You haven’t written any posts yet.</p>
+  <% } else { %>
+    <% posts.forEach(post => { %>
+      <div class="post-card">
+        <h3><%= post.title %></h3>
+        <p><%= post.content %></p>
+        <em>By <%= post.user.username %></em>
+        <a href="/posts/<%= post._id %>/edit" class="edit-link">Edit</a>
+        <form action="/posts/<%= post._id %>/delete" method="POST" style="display:inline;">
+          <button type="submit" class="delete-btn" onclick="return confirm('Are you sure?')">Delete</button>
+        </form>
+      </div>
+    <% }) %>
+  <% } %>
+</div>
+<% if (messages.success && messages.success.length > 0) { %>
+  <div class="flash-message success"><%= messages.success %></div>
+<% } %>
+
+<% if (messages.error && messages.error.length > 0) { %>
+  <div class="flash-message error"><%= messages.error %></div>
+<% } %>
+
+<script>
+  setTimeout(() => {
+    const flash = document.querySelector('.flash-message');
+    if (flash) {
+      flash.style.transition = "opacity 0.5s ease";
+      flash.style.opacity = "0";
+      setTimeout(() => flash.remove(), 500);
+    }
+  }, 3000);
+</script>
+
+</body>
+</html>
